@@ -13,30 +13,33 @@
         android:text="Please enter the details below"
         android:textSize="24dp"
         android:layout_marginTop="20dp"/>
+
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name"
-        android:textSize="24dp"
         android:layout_below="@+id/texttitle"
-        android:inputType="textPersonName"/>
+        android:hint="ID"
+        android:inputType="textLongMessage|textPersonName"
+        android:textSize="24dp" />
+
     <EditText
         android:id="@+id/contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Price"
-        android:textSize="24dp"
         android:layout_below="@+id/name"
-        android:inputType="number"/>
+        android:hint="Item Name"
+        android:inputType="textLongMessage"
+        android:textSize="24dp" />
+
     <EditText
         android:id="@+id/dob"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Date of Birth"
-        android:textSize="24dp"
         android:layout_below="@+id/contact"
-        android:inputType="number"/>
+        android:hint="Item Price"
+        android:inputType="textLongMessage"
+        android:textSize="24dp" />
     <Button
         android:id="@+id/btnInsert"
         android:layout_width="match_parent"

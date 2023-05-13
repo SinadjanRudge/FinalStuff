@@ -60,7 +60,7 @@ public class ToDoList extends AppCompatActivity {
 
 
                     itemsAdapter.add("Name :"+res.getString(0)+"\n" +
-                            "Price :"+res.getString(1)+"\n");
+                            "Price: "+res.getString(1)+"\n");
 
                 }
             }
@@ -143,9 +143,9 @@ public class ToDoList extends AppCompatActivity {
         }
         StringBuffer buffer = new StringBuffer();
         while(res.moveToNext()){
-            buffer.append("Name :"+res.getString(0)+"\n");
-            buffer.append("Contact :"+res.getString(1)+"\n");
-            buffer.append("Date of Birth :"+res.getString(2)+"\n\n");
+            buffer.append("ID: "+res.getString(0)+"\n");
+            buffer.append("Item_Name: "+res.getString(1)+"\n");
+            buffer.append("Item_Price: "+res.getString(2)+"\n\n");
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(ToDoList.this);
