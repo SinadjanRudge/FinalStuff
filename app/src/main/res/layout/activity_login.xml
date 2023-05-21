@@ -16,7 +16,7 @@
         android:textSize="24dp" />
 
     <EditText
-        android:id="@+id/contact"
+        android:id="@+id/username_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/texttitle"
@@ -26,29 +26,29 @@
         android:textSize="24dp" />
 
     <EditText
-        android:id="@+id/dob"
+        android:id="@+id/password_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/contact"
+        android:layout_below="@+id/username_tv"
         android:layout_marginTop="28dp"
         android:hint="Password"
         android:inputType="textPersonName"
         android:textSize="24dp" />
 
     <Button
-        android:id="@+id/btnInsert"
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dob"
+        android:layout_below="@id/password_tv"
         android:layout_marginTop="55dp"
         android:text="LOGIN"
         android:textSize="24dp" />
 
     <Button
-        android:id="@+id/btnUpdate"
+        android:id="@+id/btngoToSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnInsert"
+        android:layout_below="@id/btnLogin"
         android:layout_marginTop="54dp"
         android:text="don't have an account?"
         android:textSize="24dp" />

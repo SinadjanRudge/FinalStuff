@@ -3,15 +3,14 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 public class Signup extends AppCompatActivity {
-    EditText name, contact, dob;
-    Button insert, update, delete, view;
+    EditText username, password;
+    Button signup, goToLogin;
     UserDBHelper DB;
 
     @Override
@@ -19,29 +18,27 @@ public class Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        contact = findViewById(R.id.contact);
-        dob = findViewById(R.id.dob);
-        insert = findViewById(R.id.btnInsert);
-        update = findViewById(R.id.btnUpdate);
-
-        //view = findViewById(R.id.btnView);
+        username = findViewById(R.id.username_tv);
+        password = findViewById(R.id.password_tv);
+        signup = findViewById(R.id.btnSignup);
+        goToLogin = findViewById(R.id.btngoToLogin);
 
         DB = new UserDBHelper(this);
-        insert.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String contactTXT = contact.getText().toString();
-                String dobTXT = dob.getText().toString();
+                String userTXT = username.getText().toString();
+                String passTXT = password.getText().toString();
 
-                Boolean checkinsertdata = DB.insertuserdata("test", contactTXT, dobTXT, "2");
+                Boolean checkinsertdata = DB.insertuserdata("test", userTXT, passTXT, "2");
                 if(checkinsertdata==true)
-                    Toast.makeText(Signup.this, "account registered", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Signup.this, "Account Registered", Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(Signup.this, "invalid username or password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Signup.this, "Invalid USERNAME or PASSWORD", Toast.LENGTH_SHORT).show();
             }        });
 
-        update.setOnClickListener(new View.OnClickListener() {
+        goToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Signup.this, Login.class);

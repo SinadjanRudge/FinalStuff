@@ -12,60 +12,55 @@ import android.widget.EditText;
 import android.widget.Toast;
 public class Login extends AppCompatActivity {
 
-    EditText name, contact, dob;
-    Button insert, update, delete, view;
+    EditText username, password;
+    Button login, goToSignup;
     UserDBHelper userDB;
-    //public static String USERNAME = " ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        contact = findViewById(R.id.contact);
-        dob = findViewById(R.id.dob);
-        insert = findViewById(R.id.btnInsert);
-        update = findViewById(R.id.btnUpdate);
-
-        //view = findViewById(R.id.btnView);
+        login = findViewById(R.id.btnLogin);
+        goToSignup = findViewById(R.id.btngoToSignup);
 
         userDB = new UserDBHelper(this);
 
 
-        insert.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String userTXT = username.getText().toString();
+                String passTXT = password.getText().toString();
+                Cursor res = userDB.getlogindata(userTXT);
 
-
-                String contactTXT = contact.getText().toString();
-                String dobTXT = dob.getText().toString();
-                Cursor res = userDB.getlogindata(contactTXT);
-                if(res.getCount()==0){
-                    Toast.makeText(Login.this, "No Such User Exists", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    Cursor chk = userDB.checklogindata(dobTXT);
+                if(res.getCount()==0)
+                {
+                    Toast.makeText(Login.this, "User not found", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Cursor chk = userDB.checklogindata(passTXT);
 
                     String chkpass = null;
                     String chkuser = null;
-                    while (chk.moveToNext()) {
+                    while (chk.moveToNext())
+                    {
                         chkpass = chk.getString(2);
                         chkuser = chk.getString(1);
                     }
-                    if (contactTXT.equals(chkuser) == true && dobTXT.equals(chkpass) == true) {
-                        String username = contact.getText().toString();
 
+                    if (userTXT.equals(chkuser) == true && passTXT .equals(chkpass) == true)
+                    {
+                        String username1 = username.getText().toString();
 
                         Intent intent = new Intent(Login.this, MainActivity.class);
-
-                        intent.putExtra("USERNAME", username);
+                        intent.putExtra("USERNAME", username1);
                         startActivity(intent);
-
-
-                    } else {
-
+                    }
+                    else
+                    {
                         Toast.makeText(Login.this, "Wrong Password", Toast.LENGTH_SHORT).show();
-                        return;
                     }
 
                 }
@@ -73,7 +68,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        update.setOnClickListener(new View.OnClickListener() {
+        goToSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Login.this, Signup.class);

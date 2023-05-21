@@ -1,22 +1,17 @@
 package com.example.myapplication;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+
 public class MainActivity extends AppCompatActivity {
     EditText name, contact, dob;
     Button insert, update, delete, view;
     DBHelper DB;
-
-
 
 
     @Override
@@ -29,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         name = findViewById(R.id.name);
-        contact = findViewById(R.id.contact);
-        dob = findViewById(R.id.dob);
-        insert = findViewById(R.id.btnInsert);
-        update = findViewById(R.id.btnUpdate);
+        contact = findViewById(R.id.username_tv);
+        dob = findViewById(R.id.password_tv);
+        insert = findViewById(R.id.btnLogin);
+        update = findViewById(R.id.btngoToSignup);
         delete = findViewById(R.id.btnDelete);
         //view = findViewById(R.id.btnView);
         Button button = (Button) findViewById(R.id.btnView);

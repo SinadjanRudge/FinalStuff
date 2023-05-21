@@ -22,7 +22,7 @@
         android:layout_below="@+id/texttitle"
         android:inputType="textPersonName"/>
     <EditText
-        android:id="@+id/contact"
+        android:id="@+id/username_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Price"
@@ -30,35 +30,35 @@
         android:layout_below="@+id/name"
         android:inputType="number"/>
     <EditText
-        android:id="@+id/dob"
+        android:id="@+id/password_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Date of Birth"
         android:textSize="24dp"
-        android:layout_below="@+id/contact"
+        android:layout_below="@+id/username_tv"
         android:inputType="number"/>
     <Button
-        android:id="@+id/btnInsert"
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
         android:text="Insert New Data"
         android:layout_marginTop="30dp"
-        android:layout_below="@id/dob"/>
+        android:layout_below="@id/password_tv"/>
     <Button
-        android:id="@+id/btnUpdate"
+        android:id="@+id/btngoToSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
         android:text="Update Data"
-        android:layout_below="@id/btnInsert"/>
+        android:layout_below="@id/btnLogin"/>
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
         android:text="Delete Existing Data"
-        android:layout_below="@id/btnUpdate"/>
+        android:layout_below="@id/btngoToSignup"/>
     <Button
         android:id="@+id/btnView"
         android:layout_width="match_parent"
