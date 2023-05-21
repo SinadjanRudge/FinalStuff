@@ -12,44 +12,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Signup"
-        android:textSize="24dp" />
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/texttitle"
-        android:layout_marginTop="33dp"
-        android:hint="Username"
-        android:inputType="textPersonName"
+        android:text="Change Password"
         android:textSize="24dp" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
-        android:layout_marginTop="28dp"
+        android:layout_below="@+id/texttitle"
+        android:layout_marginTop="177dp"
         android:hint="Password"
         android:inputType="textPersonName"
         android:textSize="24dp" />
 
     <Button
-        android:id="@+id/signup"
+        android:id="@+id/update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
-        android:layout_marginTop="55dp"
-        android:text="SIGN IN"
+        android:layout_marginTop="51dp"
+        android:text="CHANGE"
         android:textSize="24dp" />
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/signup"
-        android:layout_marginTop="57dp"
-        android:text="already have an account?"
-        android:textSize="24dp" />
 </RelativeLayout>

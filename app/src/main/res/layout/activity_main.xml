@@ -14,51 +14,48 @@
         android:textSize="24dp"
         android:layout_marginTop="20dp"/>
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/Barcode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name"
+        android:hint="Barcode"
         android:textSize="24dp"
         android:layout_below="@+id/texttitle"
         android:inputType="textPersonName"/>
+
     <EditText
-        android:id="@+id/contact"
+        android:id="@+id/item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Barcode"
+        android:hint="item_name"
+        android:inputType="textPersonName"
+        android:textSize="24dp" />
+    <EditText
+        android:id="@+id/price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Price"
         android:textSize="24dp"
-        android:layout_below="@+id/name"
+        android:layout_below="@+id/item_name"
         android:inputType="number"/>
-    <EditText
-        android:id="@+id/dob"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Date of Birth"
-        android:textSize="24dp"
-        android:layout_below="@+id/contact"
-        android:inputType="number"/>
+
     <Button
         android:id="@+id/btnInsert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24dp"
+        android:layout_below="@id/price"
+        android:layout_marginTop="59dp"
         android:text="Insert New Data"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/dob"/>
-    <Button
-        android:id="@+id/btnUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24dp"
-        android:text="Update Data"
-        android:layout_below="@id/btnInsert"/>
+        android:textSize="24dp" />
+
+
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
         android:text="Delete Existing Data"
-        android:layout_below="@id/btnUpdate"/>
+        android:layout_below="@id/btnInsert"/>
     <Button
         android:id="@+id/btnView"
         android:layout_width="match_parent"

@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -12,53 +13,54 @@ import android.widget.EditText;
 import android.widget.Toast;
 public class Login extends AppCompatActivity {
 
-    EditText name, contact, dob;
-    Button insert, update, delete, view;
+    EditText username, password;
+    Button login, signup;
     UserDBHelper userDB;
     //public static String USERNAME = " ";
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        contact = findViewById(R.id.contact);
-        dob = findViewById(R.id.dob);
-        insert = findViewById(R.id.btnInsert);
-        update = findViewById(R.id.btnUpdate);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        login = findViewById(R.id.login);
+        signup = findViewById(R.id.signup);
 
         //view = findViewById(R.id.btnView);
 
         userDB = new UserDBHelper(this);
 
 
-        insert.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                String contactTXT = contact.getText().toString();
-                String dobTXT = dob.getText().toString();
-                Cursor res = userDB.getlogindata(contactTXT);
+                String userTXT = username.getText().toString();
+                String passwordTXT = password.getText().toString();
+                Cursor res = userDB.getlogindata(userTXT);
                 if(res.getCount()==0){
                     Toast.makeText(Login.this, "No Such User Exists", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    Cursor chk = userDB.checklogindata(dobTXT);
+
 
                     String chkpass = null;
                     String chkuser = null;
-                    while (chk.moveToNext()) {
-                        chkpass = chk.getString(2);
-                        chkuser = chk.getString(1);
+                    while (res.moveToNext()) {
+                        chkpass = res.getString(1);
+                        chkuser = res.getString(0);
                     }
-                    if (contactTXT.equals(chkuser) == true && dobTXT.equals(chkpass) == true) {
-                        String username = contact.getText().toString();
+                    if (userTXT.equals(chkuser) == true && passwordTXT.equals(chkpass) == true) {
+                        String name = username.getText().toString();
 
 
                         Intent intent = new Intent(Login.this, MainActivity.class);
 
-                        intent.putExtra("USERNAME", username);
+                        intent.putExtra("USERNAME", name);
                         startActivity(intent);
 
 
@@ -73,7 +75,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        update.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Login.this, Signup.class);

@@ -1,24 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
-import android.database.Cursor;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.app.AlertDialog;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -41,14 +24,14 @@ import java.util.ArrayList;
 public class ToDoList extends AppCompatActivity {
 
     private ArrayList<String> items;
-    private ArrayList<String> seconditems;
+
     private ArrayAdapter<String> itemsAdapter;
-    private ArrayAdapter<String> seconditemsAdapter;
+
     private ListView listView;
 
-    private EditText editText;
+
     private Button button;
-    private Button clear;
+
 
     String the_name = " ";
     int theamount;
@@ -60,6 +43,14 @@ public class ToDoList extends AppCompatActivity {
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("USERNAME");
+
+        ActionBar actionBar = getSupportActionBar();
+
+        //providing title for the ActionBar
+        actionBar.setTitle(username);
+
+        //providing subtitle for the ActionBar
+        actionBar.setSubtitle("Tindahan Price Checker");
         setContentView(R.layout.activity_to_do_list);
         DB = new DBHelper(this);
         listView = findViewById(R.id.listView);
@@ -99,10 +90,10 @@ public class ToDoList extends AppCompatActivity {
 
         while(res.moveToNext()){
 
-            String headerremove =  res.getString(0);
+            String headerremove =  res.getString(1);
 
-            itemsAdapter.add("Name :"+headerremove.substring(theamount)+"\n" +
-                    "Price :"+res.getString(1)+"\n");
+            itemsAdapter.add("Item :"+headerremove.substring(theamount)+"\n" +
+                    "Price :"+res.getString(2)+"\n");
 
         }
     }
@@ -120,15 +111,15 @@ public class ToDoList extends AppCompatActivity {
         }
         StringBuffer buffer = new StringBuffer();
         while(res.moveToNext()){
-            String headerremove =  res.getString(0);
-            buffer.append("Name :"+headerremove.substring(theamount)+"\n");
-            buffer.append("Contact :"+res.getString(1)+"\n");
-            buffer.append("Date of Birth :"+res.getString(2)+"\n\n");
+            String headerremove =  res.getString(1);
+            buffer.append("Item :"+headerremove.substring(theamount)+"\n");
+            buffer.append("Price :"+res.getString(2)+"\n");
+            buffer.append("Barcode :"+res.getString(0)+"\n\n");
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(ToDoList.this);
         builder.setCancelable(true);
-        builder.setTitle("User Entries");
+        builder.setTitle("Item Info");
         builder.setMessage(buffer.toString());
         builder.show();
 
