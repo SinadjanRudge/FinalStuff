@@ -9,14 +9,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 public class MainActivity extends AppCompatActivity {
     EditText name, contact, dob;
     Button insert, update, delete, view;
     DBHelper DB;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("USERNAME");
+        String the_name = username;
+
+
         setContentView(R.layout.activity_main);
         name = findViewById(R.id.name);
         contact = findViewById(R.id.contact);
@@ -30,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nameTXT = name.getText().toString();
+                String nameTXT = the_name + name.getText().toString();
                 String contactTXT = contact.getText().toString();
                 String dobTXT = dob.getText().toString();
 
-                Boolean checkinsertdata = DB.insertuserdata(nameTXT, contactTXT, dobTXT);
+                Boolean checkinsertdata = DB.insertuserdata(nameTXT, contactTXT, dobTXT, the_name);
                 if(checkinsertdata==true)
                     Toast.makeText(MainActivity.this, "New Entry Inserted", Toast.LENGTH_SHORT).show();
                 else
@@ -47,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 String contactTXT = contact.getText().toString();
                 String dobTXT = dob.getText().toString();
 
-                Boolean checkupdatedata = DB.updateuserdata(nameTXT, contactTXT, dobTXT);
+                Boolean checkupdatedata = DB.updateuserdata(nameTXT, contactTXT, dobTXT, the_name);
                 if(checkupdatedata==true)
                     Toast.makeText(MainActivity.this, "Entry Updated", Toast.LENGTH_SHORT).show();
                 else
@@ -57,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String nameTXT = name.getText().toString();
+                nameTXT = the_name + nameTXT;
                 Boolean checkudeletedata = DB.deletedata(nameTXT);
                 if(checkudeletedata==true)
                     Toast.makeText(MainActivity.this, "Entry Deleted", Toast.LENGTH_SHORT).show();
@@ -70,7 +81,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ToDoList.class);
+                String next_username = the_name;
+                intent.putExtra("USERNAME", next_username);
                 startActivity(intent);
+
             }
         });
 
