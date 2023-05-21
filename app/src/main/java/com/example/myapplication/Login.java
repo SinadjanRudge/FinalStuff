@@ -47,11 +47,12 @@ public class Login extends AppCompatActivity {
                     Cursor chk = userDB.checklogindata(dobTXT);
 
                     String chkpass = null;
+                    String chkuser = null;
                     while (chk.moveToNext()) {
-                        chkpass = chk.getString(1);
-
+                        chkpass = chk.getString(2);
+                        chkuser = chk.getString(1);
                     }
-                    if (contactTXT.equals(chkpass) == true) {
+                    if (contactTXT.equals(chkuser) == true && dobTXT.equals(chkpass) == true) {
                         String username = contact.getText().toString();
 
 
