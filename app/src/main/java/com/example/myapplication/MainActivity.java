@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         insert = findViewById(R.id.btnLogin);
         update = findViewById(R.id.btngoToSignup);
         delete = findViewById(R.id.btnDelete);
-        //view = findViewById(R.id.btnView);
+        view = findViewById(R.id.btnView);
         Button button = (Button) findViewById(R.id.btnView);
         DB = new DBHelper(this);
         insert.setOnClickListener(new View.OnClickListener() {

@@ -1,9 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Inventory Price Checker</string>
-    <string name="title_activity_main2">Inventory Price Checker</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Search Inventory</string>
-    <string name="title_notifications">View List</string>
     <string name="barcode">Barcode:</string>
     <string name="item_price">Item Price:</string>
     <string name="item_name">Item Name:</string>

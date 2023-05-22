@@ -65,7 +65,6 @@ public class ToDoList extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         button = findViewById(R.id.button);
 
-
         the_name = username;
         theamount = the_name.length();
         button.setOnClickListener(new View.OnClickListener() {
@@ -75,15 +74,9 @@ public class ToDoList extends AppCompatActivity {
             }
         });
 
-
-
         items = new ArrayList<>();
         itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, items);
         listView.setAdapter(itemsAdapter);
-
-
-
-
 
     }
     @Override

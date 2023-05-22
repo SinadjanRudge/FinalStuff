@@ -4,4 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.DashboardFragment"/>
+    tools:context=".ui.dashboard.DashboardFragment">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/goToAddItem"
+        android:layout_width="140dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginBottom="56dp"
+        android:background="#4CAF50"
+        android:text="Add \nItem\n\n+"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/goToDeleteItem"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/goToDeleteItem"
+        android:layout_width="140dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginBottom="208dp"
+        android:background="#FF0202"
+        android:text="-\n\nDelete\n Item"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
