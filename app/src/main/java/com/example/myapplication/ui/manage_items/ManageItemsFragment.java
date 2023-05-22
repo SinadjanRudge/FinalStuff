@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.dashboard;
+package com.example.myapplication.ui.manage_items;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,18 +13,18 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.AddItem;
 import com.example.myapplication.DeleteItem;
-import com.example.myapplication.databinding.FragmentDashboardBinding;
+import com.example.myapplication.databinding.FragmentManageItemsBinding;
 
-public class DashboardFragment extends Fragment {
+public class ManageItemsFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentManageItemsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        ManageItemsViewModel manageItemsViewModel =
+                new ViewModelProvider(this).get(ManageItemsViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentManageItemsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final Button gotoAddItem = binding.goToAddItem;

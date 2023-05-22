@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.myapplication.ui.scan.ScanFragment;
 import com.google.zxing.Result;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -29,7 +30,7 @@ public class ScanCodeActivitysearch extends AppCompatActivity implements ZXingSc
     @Override
     public void handleResult(Result result) {
 
-       // scanItemsActivity.resultsearcheview.setText(result.getText());
+        ScanFragment.resulttextview.setText(result.getText());
 
         onBackPressed();
     }

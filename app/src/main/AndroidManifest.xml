@@ -36,7 +36,6 @@
         <activity
             android:name=".Signup"
             android:exported="false" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".ScanCodeActivity" />
         <activity android:name=".ScanCodeActivitydel" />
         <activity android:name=".ScanCodeActivitysearch" />
