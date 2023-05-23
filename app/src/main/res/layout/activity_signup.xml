@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity2">
 
     <TextView
         android:id="@+id/texttitle"
@@ -16,7 +16,7 @@
         android:textSize="24dp" />
 
     <EditText
-        android:id="@+id/username_tv"
+        android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/texttitle"
@@ -26,30 +26,30 @@
         android:textSize="24dp" />
 
     <EditText
-        android:id="@+id/password_tv"
+        android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/username_tv"
+        android:layout_below="@+id/username"
         android:layout_marginTop="28dp"
         android:hint="Password"
         android:inputType="textPersonName"
         android:textSize="24dp" />
 
     <Button
-        android:id="@+id/btnSignup"
+        android:id="@+id/signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password_tv"
+        android:layout_below="@id/password"
         android:layout_marginTop="55dp"
-        android:text="SIGN UP"
+        android:text="SIGN IN"
         android:textSize="24dp" />
 
     <Button
-        android:id="@+id/btngoToLogin"
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnSignup"
-        android:layout_marginTop="54dp"
+        android:layout_below="@id/signup"
+        android:layout_marginTop="57dp"
         android:text="already have an account?"
         android:textSize="24dp" />
 </RelativeLayout>

@@ -3,4 +3,5 @@
     <item name="navigation_view_lists" type="id" />
     <item name="action_navigation_view_list_to_navigation_manage_items1" type="id" />
     <item name="action_navigation_scan_to_navigation_manage_items2" type="id" />
+    <item name="password" type="id">password</item>
 </resources>
