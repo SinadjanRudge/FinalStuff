@@ -1,7 +1,15 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="title_activity_main2">MainActivity2</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Search</string>
-    <string name="title_notifications">View</string>
+    <string name="app_name">Tindahan Price Checker</string>
+    <string name="title_activity_main2">Tindahan Price Checker</string>
+    <string name="title_home">Scan</string>
+    <string name="title_dashboard">Manage Items</string>
+    <string name="title_notifications">View List</string>
+    <string name="barcode">Barcode:</string>
+    <string name="item_price">Item Price:</string>
+    <string name="item_name">Item Name:</string>
+    <string name="add_item">Add Item</string>
+    <string name="add_new_item">Add New Item</string>
+    <string name="price_of_the_product">Price of the Product</string>
+    <string name="name_of_product">Name of Product</string>
+    <string name="barcode_id">Barcode ID</string>
 </resources>

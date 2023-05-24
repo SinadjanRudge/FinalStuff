@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.ActionBar;
 
@@ -9,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,9 +31,11 @@ public class Profile extends AppCompatActivity {
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("USERNAME");
+
         the_name = username;
 
         ActionBar actionBar = getSupportActionBar();
+
 
         //providing title for the ActionBar
         actionBar.setTitle(the_name);
@@ -39,11 +43,11 @@ public class Profile extends AppCompatActivity {
         //providing subtitle for the ActionBar
         actionBar.setSubtitle("Tindahan Price Checker");
 
-        password  = findViewById(R.id.password);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        password = findViewById(R.id.password);
         update = findViewById(R.id.update);
 
-
-        //view = findViewById(R.id.btnView);
 
         userDB = new UserDBHelper(this);
 
@@ -63,7 +67,7 @@ public class Profile extends AppCompatActivity {
                         String passwordTXT = password.getText().toString();
 
                         Boolean checkupdatedata = userDB.updateuserdata(the_name, passwordTXT);
-                        if(checkupdatedata==true)
+                        if (checkupdatedata == true)
                             Toast.makeText(Profile.this, "Entry Updated", Toast.LENGTH_SHORT).show();
                         else
                             Toast.makeText(Profile.this, "New Entry Not Updated", Toast.LENGTH_SHORT).show();
@@ -80,9 +84,19 @@ public class Profile extends AppCompatActivity {
 
                 alertDialog.show();
                 // return true;
-            }        });
+            }
+        });
 
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

@@ -58,8 +58,7 @@ public class Login extends AppCompatActivity {
                         String name = username.getText().toString();
 
 
-                        Intent intent = new Intent(Login.this, MainActivity.class);
-
+                        Intent intent = new Intent(Login.this, MainActivity2.class);
                         intent.putExtra("USERNAME", name);
                         startActivity(intent);
 

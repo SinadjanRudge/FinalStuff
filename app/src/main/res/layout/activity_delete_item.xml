@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeleteItem">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="44dp"
+        android:text="DELETE ITEM"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/barcodeview"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:autofillHints=""
+        android:enabled="true"
+        android:hint="@string/barcode_id"
+        android:inputType="none"
+        android:textSize="15sp"
+        android:editable="false"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <EditText
+        android:id="@+id/itemname_tv"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints=""
+        android:hint="@string/name_of_product"
+        android:inputType="text"
+        android:textSize="16sp"
+        android:editable="false"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/barcodeview" />
+
+    <EditText
+        android:id="@+id/price_tv"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="36dp"
+        android:autofillHints=""
+        android:hint="@string/price_of_the_product"
+        android:inputType="number|numberDecimal"
+        android:textSize="16sp"
+        android:editable="false"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/itemname_tv" />
+
+    <Button
+        android:id="@+id/buttonscan"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="136dp"
+        android:background="@drawable/scan_logo"
+        app:layout_constraintStart_toEndOf="@+id/barcodeview"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/barcode"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/item_name"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/item_price"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/deletebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="40dp"
+        android:text="Delete Item"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkbutton" />
+
+    <Button
+        android:id="@+id/checkbutton"
+        android:layout_width="122dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="24dp"
+        android:text="Check"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/price_tv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
