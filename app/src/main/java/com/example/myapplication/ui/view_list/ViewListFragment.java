@@ -1,6 +1,5 @@
 package com.example.myapplication.ui.view_list;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,13 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.DBHelper;
-import com.example.myapplication.ItemsDBHelper;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentViewListBinding;
 
@@ -28,6 +25,7 @@ public class ViewListFragment extends Fragment {
 
     private ArrayAdapter<String> itemsAdapter;
     TextView itemcount;
+    ListView listView;
 
     DBHelper dbHelper;
 
@@ -38,8 +36,7 @@ public class ViewListFragment extends Fragment {
         binding = FragmentViewListBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
-        ListView listView = root.findViewById(R.id.list_view);
+        listView = root.findViewById(R.id.list_view);
         itemcount = root.findViewById(R.id.itemCount);
 
         ArrayList<String> items = new ArrayList<>();
@@ -67,10 +64,8 @@ public class ViewListFragment extends Fragment {
                         "Item Name : " + res.getString(1) + "\n" +
                         "Price : Php " + res.getString(2));
             }
-            itemcount.setText(count);
+                itemcount.setText(count);
         }
-
-
     }
 
     @Override

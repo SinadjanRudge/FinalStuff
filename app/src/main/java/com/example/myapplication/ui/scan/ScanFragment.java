@@ -32,10 +32,6 @@ public class ScanFragment extends Fragment {
         ScanViewModel scanViewModel =
                 new ViewModelProvider(this).get(ScanViewModel.class);
 
-        Intent intent = getActivity().getIntent();
-        String username = intent.getStringExtra("USERNAME");
-        other_name = username;
-
         binding = FragmentScanBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 

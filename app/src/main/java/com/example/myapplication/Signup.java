@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -37,13 +38,38 @@ public class Signup extends AppCompatActivity {
                 String passwordTXT = password.getText().toString();
                 if(userTXT.equals("")==true || passwordTXT.equals("")==true)
                 {
-                    Toast.makeText(Signup.this, "Please enter username and password", Toast.LENGTH_SHORT).show();
-                } else{
+                    Toast.makeText(Signup.this, "Please enter Username and Password", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
                     Boolean checkinsertdata = userDB.insertuserdata(userTXT, passwordTXT);
                     if(checkinsertdata==true)
-                        Toast.makeText(Signup.this, "account registered", Toast.LENGTH_SHORT).show();
+                    {
+                        Toast.makeText(Signup.this, "Account Registered", Toast.LENGTH_SHORT).show();
+                        android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(Signup.this);
+
+                        alertDialog.setTitle("Registered Successfully");
+                        alertDialog.setMessage("Do you want to proceed to Log In?");
+
+                        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent goback = new Intent(Signup.this, Login.class);
+                                startActivity(goback);
+                            }
+                        });
+                        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                username.setText("");
+                                password.setText("");
+                                dialog.cancel();
+                            }
+                        });
+
+                        // Showing Alert Message
+                        alertDialog.show();
+                    }
                     else
-                        Toast.makeText(Signup.this, "invalid username or password", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Signup.this, "Username already taken", Toast.LENGTH_SHORT).show();
                 }
 
             }        });

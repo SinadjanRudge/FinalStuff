@@ -31,7 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:layout_marginTop="51dp"
-        android:text="CHANGE"
+        android:backgroundTint="#333A3C"
+        android:text="Change"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="24dp" />
 
 </RelativeLayout>

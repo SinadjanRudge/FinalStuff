@@ -109,6 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
         android:layout_marginTop="88dp"
+        android:backgroundTint="#333A3C"
         android:text="@string/add_new_item"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/price_tv" />

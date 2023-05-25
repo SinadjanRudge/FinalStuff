@@ -19,8 +19,6 @@ public class AddItem extends AppCompatActivity {
     Button scanbutton, addbutton;
     EditText item_name, price;
     DBHelper db;
-    public String other_name = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +27,6 @@ public class AddItem extends AppCompatActivity {
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("USERNAME");
-        String the_name = username;
-        other_name = username;
 
         resulttextview = findViewById(R.id.barcodeview);
         scanbutton = findViewById(R.id.buttonscan);
@@ -43,24 +39,26 @@ public class AddItem extends AppCompatActivity {
 
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-
         addbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String BarcodeTXT = the_name + resulttextview.getText().toString();
+                String BarcodeTXT = username + resulttextview.getText().toString();
                 String itemTXT = item_name.getText().toString();
                 String priceTXT = price.getText().toString();
-
-                Boolean checkinsertdata = db.insertuserdata(BarcodeTXT, itemTXT, priceTXT, the_name);
-                if(checkinsertdata==true) {
-                    resulttextview.setText("");
-                    item_name.setText("");
-                    price.setText("");
-                    Toast.makeText(AddItem.this, "New Item Added", Toast.LENGTH_SHORT).show();
+                if(!BarcodeTXT.equals("") && !itemTXT.equals("") && !priceTXT.equals("")) {
+                    Boolean checkinsertdata = db.insertuserdata(BarcodeTXT, itemTXT, priceTXT, username);
+                    if (checkinsertdata == true) {
+                        resulttextview.setText("");
+                        item_name.setText("");
+                        price.setText("");
+                        Toast.makeText(AddItem.this, "New Item Added", Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(AddItem.this, "Add Item Invalid", Toast.LENGTH_SHORT).show();
                 }
                 else
-                    Toast.makeText(AddItem.this, "Add Item Invalid", Toast.LENGTH_SHORT).show();
-            }        });
+                    Toast.makeText(AddItem.this, "Please complete all fields.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         scanbutton.setOnClickListener(new View.OnClickListener() {
             @Override

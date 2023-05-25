@@ -65,8 +65,8 @@
         android:id="@+id/buttonscan"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="132dp"
         android:background="@drawable/scan_logo"
         app:layout_constraintStart_toEndOf="@+id/barcodeview"
         app:layout_constraintTop_toTopOf="parent"
@@ -111,6 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="135dp"
         android:layout_marginTop="40dp"
+        android:backgroundTint="#333A3C"
         android:text="Delete Item"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkbutton" />
@@ -121,6 +122,7 @@
         android:layout_height="54dp"
         android:layout_marginStart="142dp"
         android:layout_marginTop="24dp"
+        android:backgroundTint="#333A3C"
         android:text="Check"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/price_tv" />

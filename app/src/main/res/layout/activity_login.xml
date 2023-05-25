@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".MainActivity">
+    tools:context=".Login">
 
     <TextView
         android:id="@+id/texttitle"
@@ -41,7 +41,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:layout_marginTop="55dp"
-        android:text="LOGIN"
+        android:backgroundTint="#333A3C"
+        android:text="Log in"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="24dp" />
 
     <Button
@@ -50,6 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/login"
         android:layout_marginTop="54dp"
-        android:text="don't have an account?"
+        android:backgroundTint="#333A3C"
+        android:text="Don't have an account?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="24dp" />
 </RelativeLayout>

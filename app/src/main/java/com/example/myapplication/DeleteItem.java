@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -43,7 +44,6 @@ public class DeleteItem extends AppCompatActivity {
         item_name.setEnabled(false);
         price.setEnabled(false);
 
-        Toast.makeText(DeleteItem.this, the_name, Toast.LENGTH_SHORT).show();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -60,6 +60,7 @@ public class DeleteItem extends AppCompatActivity {
                 String barcodeTXT = the_name + resulttextview.getText().toString();
                 Cursor cursor = db.getcertaindata(barcodeTXT);
                 if(cursor.getCount()==0){
+                    Toast.makeText(DeleteItem.this, "Item Not Found", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 while(cursor.moveToNext()) {
@@ -72,17 +73,41 @@ public class DeleteItem extends AppCompatActivity {
         deletebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String barcodeTXT = the_name + resulttextview.getText().toString();
-                Boolean checkitem = db.deletedata(barcodeTXT);
-                if(checkitem==true){
-                    resulttextview.setText("");
-                    item_name.setText("");
-                    price.setText("");
-                    Toast.makeText(DeleteItem.this, "Item Deleted Successfully", Toast.LENGTH_SHORT).show();
+                String barcodeTXT1 = resulttextview.getText().toString();
+                String itemnameTXT = item_name.getText().toString();
+                String priceTXT = price.getText().toString();
+                if(!barcodeTXT1.equals("") && !itemnameTXT.equals("") && !priceTXT.equals("")) {
+                    android.app.AlertDialog.Builder alertDialog = new android.app.AlertDialog.Builder(DeleteItem.this);
+
+                    alertDialog.setTitle("Delete");
+                    alertDialog.setMessage("Are you sure you want to delete this item?");
+
+                    alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            String barcodeTXT = the_name + resulttextview.getText().toString();
+                            Boolean checkitem = db.deletedata(barcodeTXT);
+                            if (checkitem == true) {
+                                resulttextview.setText("");
+                                item_name.setText("");
+                                price.setText("");
+                                Toast.makeText(DeleteItem.this, "Item Deleted Successfully", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(DeleteItem.this, "Invalid", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                    alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+
+                    // Showing Alert Message
+                    alertDialog.show();
                 }
-                else {
-                    Toast.makeText(DeleteItem.this, "Invalid", Toast.LENGTH_SHORT).show();
-                }
+                else
+                    Toast.makeText(DeleteItem.this, "Please complete all fields", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

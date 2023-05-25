@@ -63,20 +63,21 @@ public class Profile extends AppCompatActivity {
                 alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
-
                         String passwordTXT = password.getText().toString();
 
                         Boolean checkupdatedata = userDB.updateuserdata(the_name, passwordTXT);
-                        if (checkupdatedata == true)
-                            Toast.makeText(Profile.this, "Entry Updated", Toast.LENGTH_SHORT).show();
+                        if (checkupdatedata == true) {
+                            Toast.makeText(Profile.this, "New Password Updated", Toast.LENGTH_SHORT).show();
+                            password.setText("");
+                        }
                         else
-                            Toast.makeText(Profile.this, "New Entry Not Updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Profile.this, "Update Error", Toast.LENGTH_SHORT).show();
                     }
                 });
                 alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
-                        Toast.makeText(getApplicationContext(), "You clicked on NO", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Password Unchanged", Toast.LENGTH_SHORT).show();
                         dialog.cancel();
                     }
                 });

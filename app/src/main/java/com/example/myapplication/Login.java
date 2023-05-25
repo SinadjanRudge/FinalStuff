@@ -29,8 +29,6 @@ public class Login extends AppCompatActivity {
         login = findViewById(R.id.login);
         signup = findViewById(R.id.signup);
 
-        //view = findViewById(R.id.btnView);
-
         userDB = new UserDBHelper(this);
 
 
