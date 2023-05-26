@@ -11,13 +11,14 @@
         android:id="@+id/texttitle"
         android:layout_width="276dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView4"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="237dp"
-        android:layout_marginEnd="71dp"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="91dp"
         android:text="Sign in to your account"
+        android:textAlignment="center"
         android:textSize="24dp" />
 
     <EditText
@@ -41,7 +42,7 @@
         android:layout_below="@+id/username"
         android:layout_marginTop="18dp"
         android:hint="Password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:textSize="24dp" />
 
     <Button
@@ -70,12 +71,10 @@
         android:id="@+id/imageView4"
         android:layout_width="401dp"
         android:layout_height="259dp"
-        android:layout_above="@+id/username"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="34dp"
-        tools:srcCompat="@drawable/logo" />
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="8dp"
+        app:srcCompat="@drawable/logo" />
 
 </RelativeLayout>

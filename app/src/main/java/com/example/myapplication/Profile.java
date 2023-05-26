@@ -17,8 +17,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 public class Profile extends AppCompatActivity {
 
-    EditText username, password;
-    Button change, update;
+    EditText password, confirmpassword;
+    Button update;
     UserDBHelper userDB;
 
     String the_name = " ";
@@ -46,14 +46,20 @@ public class Profile extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         password = findViewById(R.id.password);
+        confirmpassword = findViewById(R.id.confirmpassword);
         update = findViewById(R.id.update);
-
-
         userDB = new UserDBHelper(this);
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String passwordTXT = password.getText().toString();
+                String confirmpasswordTXT = confirmpassword.getText().toString();
+
+                if(!confirmpasswordTXT.equals(passwordTXT)){
+                    Toast.makeText(getApplicationContext(), "Passwords Don't Match!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 android.app.AlertDialog.Builder alertDialog = new AlertDialog.Builder(Profile.this);
 
@@ -69,6 +75,7 @@ public class Profile extends AppCompatActivity {
                         if (checkupdatedata == true) {
                             Toast.makeText(Profile.this, "New Password Updated", Toast.LENGTH_SHORT).show();
                             password.setText("");
+                            confirmpassword.setText("");
                         }
                         else
                             Toast.makeText(Profile.this, "Update Error", Toast.LENGTH_SHORT).show();

@@ -42,10 +42,6 @@ public class ScanFragment extends Fragment {
         resulttextview = root.findViewById(R.id.barcodeview);
         resulttextview.setEnabled(false);
 
-        ImageView gif = root.findViewById(R.drawable.barcode_scan);
-
-        Glide.with(this).asGif().load(R.drawable.barcode_scan).into(gif);
-
         scanbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

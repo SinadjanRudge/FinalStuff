@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 public class Signup extends AppCompatActivity {
-    EditText username, password;
+    EditText username, password, confirmpassword;
     Button login, signup;
     UserDBHelper userDB;
 
@@ -26,6 +26,7 @@ public class Signup extends AppCompatActivity {
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
         signup = findViewById(R.id.signup);
+        confirmpassword = findViewById(R.id.confirmpassword);
 
         //view = findViewById(R.id.btnView);
 
@@ -36,12 +37,18 @@ public class Signup extends AppCompatActivity {
 
                 String userTXT = username.getText().toString();
                 String passwordTXT = password.getText().toString();
-                if(userTXT.equals("")==true || passwordTXT.equals("")==true)
+                String confirmpasswordTXT = confirmpassword.getText().toString();
+
+                if(userTXT.equals("") && passwordTXT.equals("") && confirmpasswordTXT.equals(""))
                 {
                     Toast.makeText(Signup.this, "Please enter Username and Password", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
+                    if(!confirmpasswordTXT.equals(passwordTXT)){
+                        Toast.makeText(getApplicationContext(), "Passwords Don't Match!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     Boolean checkinsertdata = userDB.insertuserdata(userTXT, passwordTXT);
                     if(checkinsertdata==true)
                     {
