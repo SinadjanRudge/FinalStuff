@@ -9,27 +9,27 @@
 
     <TextView
         android:id="@+id/texttitle"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_width="233dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="232dp"
-        android:layout_marginEnd="62dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="80dp"
         android:text="Create your account"
         android:textSize="24dp" />
 
     <EditText
         android:id="@+id/username"
-        android:layout_width="399dp"
+        android:layout_width="401dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/texttitle"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="0dp"
         android:hint="Username"
         android:inputType="textPersonName"
         android:textSize="24dp" />
@@ -44,12 +44,22 @@
         android:inputType="textPersonName"
         android:textSize="24dp" />
 
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="10dp"
+        android:hint="Confirm Password"
+        android:inputType="textPersonName"
+        android:textSize="24dp" />
+
     <Button
         android:id="@+id/signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
-        android:layout_marginTop="32dp"
+        android:layout_below="@+id/password2"
+        android:layout_marginTop="38dp"
         android:text="SIGN IN"
         android:textSize="24dp" />
 
@@ -58,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/signup"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="16dp"
         android:text="already have an account?"
         android:textSize="24dp" />
 
@@ -70,9 +80,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="484dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="476dp"
         tools:srcCompat="@drawable/logo" />
 </RelativeLayout>
