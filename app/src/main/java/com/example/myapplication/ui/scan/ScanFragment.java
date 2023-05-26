@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,8 @@ import com.example.myapplication.DBHelper;
 import com.example.myapplication.R;
 import com.example.myapplication.ScanCodeActivitysearch;
 import com.example.myapplication.databinding.FragmentScanBinding;
+import com.bumptech.glide.Glide;
+
 
 public class ScanFragment extends Fragment {
 
@@ -38,6 +41,11 @@ public class ScanFragment extends Fragment {
         final Button scanbtn = binding.scanbutton;
         resulttextview = root.findViewById(R.id.barcodeview);
         resulttextview.setEnabled(false);
+
+        ImageView gif = root.findViewById(R.drawable.barcode_scan);
+
+        Glide.with(this).asGif().load(R.drawable.barcode_scan).into(gif);
+
         scanbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
