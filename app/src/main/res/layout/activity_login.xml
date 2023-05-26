@@ -9,18 +9,27 @@
 
     <TextView
         android:id="@+id/texttitle"
-        android:layout_width="match_parent"
+        android:layout_width="276dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Login"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="237dp"
+        android:layout_marginEnd="71dp"
+        android:text="Sign in to your account"
         android:textSize="24dp" />
 
     <EditText
         android:id="@+id/username"
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/texttitle"
-        android:layout_marginTop="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="1dp"
         android:hint="Username"
         android:inputType="textPersonName"
         android:textSize="24dp" />
@@ -30,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/username"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="18dp"
         android:hint="Password"
         android:inputType="textPersonName"
         android:textSize="24dp" />
@@ -40,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="37dp"
         android:backgroundTint="#333A3C"
         android:text="Log in"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -51,9 +60,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/login"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="21dp"
         android:backgroundTint="#333A3C"
         android:text="Don't have an account?"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="24dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="401dp"
+        android:layout_height="259dp"
+        android:layout_above="@+id/username"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="34dp"
+        tools:srcCompat="@drawable/logo" />
+
 </RelativeLayout>
